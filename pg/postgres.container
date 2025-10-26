@@ -1,0 +1,19 @@
+[Unit]
+Description=PostgreSQL Server Container
+After=network-online.target
+Wants=network-online.target
+
+[Container]
+Image=docker.io/library/postgres:17.6
+Secret=postgres-password,type=env,target=POSTGRES_PASSWORD
+Environment=TZ="Europe/Moscow"
+PublishPort=5432:5432
+Volume=postgres-data:/var/lib/postgresql/data # Define a named volume for persistence
+AutoUpdate=registry
+
+[Service]
+Restart=always
+TimeoutStartSec=300 # Increase if needed for initial setup
+
+[Install]
+WantedBy=multi-user.target default.target

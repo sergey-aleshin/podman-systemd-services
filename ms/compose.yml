@@ -1,0 +1,23 @@
+services:
+  mssql:
+    container_name: sql-server
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "<type password here>"
+      MSSQL_LOGGING: "verbose"
+      MSSQL_PID: "Developer"
+      TZ: "Russian Standard Time"
+    ports:
+      - 1433:1433
+    volumes:
+      - mssql_data:/var/opt/mssql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+volumes:
+  mssql_data:
+

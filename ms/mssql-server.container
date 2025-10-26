@@ -1,0 +1,22 @@
+[Unit]
+Description=Microsoft SQL Server Container
+After=network-online.target
+Wants=network-online.target
+
+[Container]
+Image=mcr.microsoft.com/mssql/server:2019-latest
+Secret=mssql-password,type=env,target=MSSQL_SA_PASSWORD
+Environment=ACCEPT_EULA=Y
+Environment=MSSQL_PID=Developer # Or Express, Standard, Enterprise
+Environment=TZ="Russian Standard Time"
+Environment=MSSQL_LOGGING=verbose
+PublishPort=1433:1433
+Volume=mssql-data:/var/opt/mssql # Define a named volume for persistence
+AutoUpdate=registry
+
+[Service]
+Restart=always
+TimeoutStartSec=300 # Increase if needed for initial setup
+
+[Install]
+WantedBy=multi-user.target default.target
