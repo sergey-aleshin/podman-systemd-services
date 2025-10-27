@@ -1,7 +1,7 @@
 services:
   postgres-server:
     container_name: pg-server
-    image: docker.io/library/postgres:16
+    image: docker.io/library/postgres:17.6
     restart: unless-stopped
     ports:
       - 5432:5432
