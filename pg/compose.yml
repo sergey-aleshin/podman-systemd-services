@@ -16,5 +16,5 @@ services:
           cpus: '2'
           memory: 4G
 volumes:
-  postgresdata:
+  postgres-data:
 
