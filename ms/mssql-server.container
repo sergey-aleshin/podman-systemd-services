@@ -11,14 +11,14 @@ Environment=MSSQL_PID=Developer # Or Express, Standard, Enterprise
 Environment=TZ="Russian Standard Time"
 Environment=MSSQL_LOGGING=verbose
 PublishPort=1433:1433
-Volume=mssql-data:/var/opt/mssql # Define a named volume for persistence
-Volume=/var/backups/mssql:/host_backups
+Volume=mssql-data:/var/opt/mssql
+Volume=mssql-backups:/backup
 AutoUpdate=registry
 
 [Service]
 Restart=always
 TimeoutStartSec=300 # Increase if needed for initial setup
-MemoryMax=4G
+MemoryMax=8G
 
 [Install]
 WantedBy=multi-user.target default.target

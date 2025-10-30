@@ -14,7 +14,7 @@ AutoUpdate=registry
 [Service]
 Restart=always
 TimeoutStartSec=300 # Increase if needed for initial setup
-MemoryMax=4G
+MemoryMax=8G
 
 [Install]
 WantedBy=multi-user.target default.target
