@@ -1,4 +1,4 @@
-.PHONY: sync-ms sync-pg stop stop-ms stop-pg start start-ms start-pg status-ms status-pg default verify-ms verify_pg
+.PHONY: sync-ms sync-pg stop stop-ms stop-pg start start-ms start-pg status-ms status-pg default verify-ms verify-pg reload
 
 TARGET_DIR=~/.config/containers/systemd
 PG_CONTAINER_FILE=postgres.container
