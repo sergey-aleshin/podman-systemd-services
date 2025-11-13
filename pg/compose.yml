@@ -9,7 +9,9 @@ services:
       - postgres-data:/var/lib/postgresql/data
     environment:
       TZ: "Europe/Moscow"
-      POSTGRES_PASSWORD: "<type password here>"
+      POSTGRES_PASSWORD_FILE: /run/secrets/pg_password
+    secrets:
+      - pg_password
     deploy:
       resources:
         limits:
@@ -18,3 +20,6 @@ services:
 volumes:
   postgres-data:
 
+secrets:
+  pg_password:
+    file: pg_password.txt
